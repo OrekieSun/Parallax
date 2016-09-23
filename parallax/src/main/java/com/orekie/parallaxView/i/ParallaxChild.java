@@ -1,21 +1,22 @@
 package com.orekie.parallaxView.i;
 
-/**
- * Created by orekie on 16-9-22.
- */
+
 public interface ParallaxChild {
 
     /**
-     * A ParallaxScrollable should call this method when scrolling
-     * This method is to ensure child view will perform a parallax-behavior during scrolling procedure
-     * A ParallaxChild should adjust visible part of content to ensure parallax-behavior
+     * 在 ParallaxScrollable 滚动时由 ParallaxHelper 回调
      *
-     * @param percent 0.0: the top of view reaches the top of ParallaxScrollable
+     * @param percent 0.0: 当前 view 的底边与父布局的顶边重合
      *                ~
-     *                1.0: the top of view reaches the bot of ParallaxScrollable
+     *                1.0:  当前 view 的顶与父布局的底边重合
      */
     void setOffset(float percent, boolean isHorizontal);
 
+    /**
+     * 一个 ParallaxChild 的实现类应该支持设置视差效果
+     *
+     * @param param 视差效果因数
+     */
     void setParallaxParam(float param);
 
 }

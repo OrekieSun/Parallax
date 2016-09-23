@@ -24,15 +24,22 @@ public class ParallaxView extends ViewGroup
 
     public ParallaxView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        resolveAttrs(attrs);
     }
+
 
     public ParallaxView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        resolveAttrs(attrs);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public ParallaxView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
+        resolveAttrs(attrs);
+    }
+
+    private void resolveAttrs(AttributeSet attrs) {
     }
 
     @Override
@@ -61,10 +68,16 @@ public class ParallaxView extends ViewGroup
         View child = getChildAt(0);
         if (!isHorizontal) {
             maxOffset = (int) (child.getMeasuredHeight() * param);
-            setMeasuredDimension(child.getMeasuredWidth(), (int) (child.getMeasuredHeight() * (1 - param)));
+            setMeasuredDimension(
+                    child.getMeasuredWidth(),
+                    (int) (child.getMeasuredHeight() * (1 - param))
+            );
         } else {
             maxOffset = (int) (child.getMeasuredWidth() * param);
-            setMeasuredDimension((int) (child.getMeasuredWidth() * (1 - param)), child.getMeasuredHeight());
+            setMeasuredDimension(
+                    (int) (child.getMeasuredWidth() * (1 - param)),
+                    child.getMeasuredHeight()
+            );
         }
     }
 
