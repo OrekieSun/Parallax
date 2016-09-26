@@ -3,7 +3,6 @@ package com.orekie.parallaxView.widget;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.View;
@@ -14,7 +13,10 @@ import com.orekie.parallaxView.i.ParallaxScrollable;
 
 public class ParallaxRecyclerView extends RecyclerView
         implements ParallaxScrollable {
-    private boolean isHorizontal;
+
+    public final static int UNSPECIFIED = ParallaxHelper.UNSPECIFIED;
+
+    private int orientation = UNSPECIFIED;
     private ParallaxHelper helper;
 
     public ParallaxRecyclerView(Context context) {
@@ -45,19 +47,27 @@ public class ParallaxRecyclerView extends RecyclerView
     @Override
     protected void onScrollChanged(int l, int t, int oldl, int oldt) {
         super.onScrollChanged(l, t, oldl, oldt);
-        helper.makeParallax(isHorizontal);
+        helper.makeParallax(orientation);
     }
 
 
     public void setOritation(int orientation) {
-        isHorizontal = orientation == LinearLayoutManager.HORIZONTAL;
+        this.orientation = this.orientation;
     }
 
     @Override
     public void setLayoutManager(LayoutManager layout) {
         super.setLayoutManager(layout);
-        if (layout instanceof LinearLayoutManager) {
-            isHorizontal = ((LinearLayoutManager) layout).getOrientation() == LinearLayoutManager.HORIZONTAL;
+        if (!layout.canScrollVertically() && !layout.canScrollHorizontally()) {
+            if (layout.canScrollHorizontally()) {
+                orientation = HORIZONTAL;
+            } else if (layout.canScrollVertically()) {
+                orientation = VERTICAL;
+            } else {
+                orientation = UNSPECIFIED;
+            }
+        } else {
+            orientation = UNSPECIFIED;
         }
     }
 
@@ -70,7 +80,7 @@ public class ParallaxRecyclerView extends RecyclerView
         int height = getMeasuredHeight();
         int width = getMeasuredWidth();
         helper.setLayoutParams(top, left, height, width);
-        helper.makeParallax(isHorizontal);
+        helper.makeParallax(orientation);
         super.onDraw(c);
     }
 
@@ -82,6 +92,10 @@ public class ParallaxRecyclerView extends RecyclerView
     @Override
     public void removeParallaxView(ParallaxView parallaxView) {
         helper.removeParallaxChild(parallaxView);
+    }
+
+    public boolean isHorizontal() {
+        return orientation == HORIZONTAL;
     }
 
     static public abstract class ParallaxAdapter<T extends ViewHolder>

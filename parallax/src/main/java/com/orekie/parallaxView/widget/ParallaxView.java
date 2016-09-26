@@ -2,11 +2,13 @@ package com.orekie.parallaxView.widget;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.orekie.parallax.R;
 import com.orekie.parallaxView.i.ParallaxChild;
 
 
@@ -40,6 +42,9 @@ public class ParallaxView extends ViewGroup
     }
 
     private void resolveAttrs(AttributeSet attrs) {
+        TypedArray array = getContext().obtainStyledAttributes(attrs, R.styleable.ParallaxView);
+        param = array.getFloat(0, 0.7f);
+        array.recycle();
     }
 
     @Override

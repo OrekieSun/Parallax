@@ -1,9 +1,11 @@
 package com.orekie.parallaxView.helper;
 
 import android.view.View;
+import android.widget.LinearLayout;
 
-import com.orekie.parallaxView.widget.ParallaxView;
 import com.orekie.parallaxView.i.ParallaxChild;
+import com.orekie.parallaxView.widget.ParallaxRecyclerView;
+import com.orekie.parallaxView.widget.ParallaxView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +16,10 @@ public class ParallaxHelper {
     private List<ParallaxChild> parallaxChildren;
     private int top, left;
     private int height, width;
+    public final static int UNSPECIFIED = -1;
+    public final static int HORIZONTAL = LinearLayout.HORIZONTAL;
+    public final static int VERTICAL = LinearLayout.VERTICAL;
+
 
     public ParallaxHelper() {
         parallaxChildren = new ArrayList<>();
@@ -26,21 +32,24 @@ public class ParallaxHelper {
         this.width = width;
     }
 
-    public void makeParallax(boolean isHorizontal) {
-        if (!isHorizontal) {
-            for (ParallaxChild v : parallaxChildren) {
-                Point point = calculateViewOffset((View) v);
-                if (point.y + ((View) v).getMeasuredHeight() >= 0 && point.y <= height) {
-                    float percent = point.y * 1f / (height + ((View) v).getMeasuredHeight());
-                    v.setOffset(percent, false);
+    public void makeParallax(int orientation) {
+        if (orientation != UNSPECIFIED) {
+            boolean isHorizontal = orientation == HORIZONTAL;
+            if (!isHorizontal) {
+                for (ParallaxChild v : parallaxChildren) {
+                    Point point = calculateViewOffset((View) v);
+                    if (point.y + ((View) v).getMeasuredHeight() >= 0 && point.y <= height) {
+                        float percent = point.y * 1f / (height + ((View) v).getMeasuredHeight());
+                        v.setOffset(percent, false);
+                    }
                 }
-            }
-        } else {
-            for (ParallaxChild v : parallaxChildren) {
-                Point point = calculateViewOffset((View) v);
-                if (point.x + ((View) v).getMeasuredWidth() >= 0 && point.x <= width) {
-                    float percent = point.x * 1f / (width + ((View) v).getMeasuredWidth());
-                    v.setOffset(percent, true);
+            } else {
+                for (ParallaxChild v : parallaxChildren) {
+                    Point point = calculateViewOffset((View) v);
+                    if (point.x + ((View) v).getMeasuredWidth() >= 0 && point.x <= width) {
+                        float percent = point.x * 1f / (width + ((View) v).getMeasuredWidth());
+                        v.setOffset(percent, true);
+                    }
                 }
             }
         }

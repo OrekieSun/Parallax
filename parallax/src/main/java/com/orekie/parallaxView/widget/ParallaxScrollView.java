@@ -6,6 +6,7 @@ import android.support.v4.widget.NestedScrollView;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.orekie.parallaxView.helper.ParallaxHelper;
 
@@ -43,14 +44,14 @@ public class ParallaxScrollView extends NestedScrollView {
         int height = getMeasuredHeight();
         int width = getMeasuredWidth();
         helper.setLayoutParams(top, left, height, width);
-        helper.makeParallax(false);
+        helper.makeParallax(ParallaxHelper.VERTICAL);
         super.onDraw(c);
     }
 
     @Override
     protected void onScrollChanged(int l, int t, int oldl, int oldt) {
         super.onScrollChanged(l, t, oldl, oldt);
-        helper.makeParallax(false);
+        helper.makeParallax(ParallaxHelper.VERTICAL);
     }
 
     private void init() {
@@ -62,7 +63,7 @@ public class ParallaxScrollView extends NestedScrollView {
         for (int i = 0; i < container.getChildCount(); i++) {
             View v = container.getChildAt(i);
             if (v instanceof ParallaxView) {
-               helper.addParallaxChild((ParallaxView) v);
+                helper.addParallaxChild((ParallaxView) v);
             }
         }
     }
