@@ -3,14 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.orekie.parallaxView.MainActivity">
+    tools:context=".RecyclerViewActivity">
 
 
     <com.orekie.parallaxView.widget.ParallaxRecyclerView
         android:id="@+id/v"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-    </com.orekie.parallaxView.widget.ParallaxRecyclerView>
+        android:layout_height="match_parent" />
 </RelativeLayout>

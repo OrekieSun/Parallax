@@ -58,14 +58,10 @@ public class ParallaxRecyclerView extends RecyclerView
     @Override
     public void setLayoutManager(LayoutManager layout) {
         super.setLayoutManager(layout);
-        if (!layout.canScrollVertically() && !layout.canScrollHorizontally()) {
-            if (layout.canScrollHorizontally()) {
-                orientation = HORIZONTAL;
-            } else if (layout.canScrollVertically()) {
-                orientation = VERTICAL;
-            } else {
-                orientation = UNSPECIFIED;
-            }
+        if (layout.canScrollHorizontally()) {
+            orientation = HORIZONTAL;
+        } else if (layout.canScrollVertically()) {
+            orientation = VERTICAL;
         } else {
             orientation = UNSPECIFIED;
         }
