@@ -23,7 +23,7 @@
 </RelativeLayout>
 ```
 
-item 的根布局使用 ParallaxView 包裹即可对子布局进行视差，内容不限，可包裹复杂 Layout 此处以 ImagView 为例
+item 的根布局使用 ParallaxView 包裹即可对子布局进行视差，内容不限，可包裹复杂 Layout 此处以 ImageView 为例
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <com.orekie.parallaxView.widget.ParallaxView xmlns:android="http://schemas.android.com/apk/res/android"
