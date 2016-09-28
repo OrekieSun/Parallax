@@ -67,17 +67,7 @@ RecyclerView 默认支持了 LinearLayoutManager 等，如若使用自定义的�
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:text="hello" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:text="world" />
+            <!-- place normal view here -->
 
             <com.orekie.parallaxView.widget.ParallaxView
                 android:layout_width="wrap_content"
@@ -92,17 +82,7 @@ RecyclerView 默认支持了 LinearLayoutManager 等，如若使用自定义的�
                     android:src="@drawable/i0" />
             </com.orekie.parallaxView.widget.ParallaxView>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:text="hello" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:text="world" />
+            <!-- place normal view here -->
 
             <com.orekie.parallaxView.widget.ParallaxView 
                 android:layout_width="wrap_content"
@@ -116,17 +96,7 @@ RecyclerView 默认支持了 LinearLayoutManager 等，如若使用自定义的�
                     android:src="@drawable/i1" />
             </com.orekie.parallaxView.widget.ParallaxView>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:text="hello" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:text="world" />
+            <!-- place normal view here -->
 
             <com.orekie.parallaxView.widget.ParallaxView 
                 android:layout_width="wrap_content"
@@ -138,18 +108,6 @@ RecyclerView 默认支持了 LinearLayoutManager 等，如若使用自定义的�
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
                     android:src="@drawable/i2" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="20dp"
-                    android:text="hello" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="20dp"
-                    android:text="world" />
             </com.orekie.parallaxView.widget.ParallaxView>
         </LinearLayout>
     </com.orekie.parallaxView.widget.ParallaxScrollView>
