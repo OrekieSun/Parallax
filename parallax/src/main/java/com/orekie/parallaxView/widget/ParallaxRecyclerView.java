@@ -51,8 +51,8 @@ public class ParallaxRecyclerView extends RecyclerView
     }
 
 
-    public void setOritation(int orientation) {
-        this.orientation = this.orientation;
+    public void setOrientation(int orientation) {
+        this.orientation = orientation;
     }
 
     @Override

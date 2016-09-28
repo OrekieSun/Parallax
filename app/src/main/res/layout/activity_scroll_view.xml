@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ScrollViewActivity">
 
     <com.orekie.parallaxView.widget.ParallaxScrollView
@@ -26,7 +27,7 @@
                 android:padding="20dp"
                 android:text="world" />
 
-            <com.orekie.parallaxView.widget.ParallaxView xmlns:app="http://schemas.android.com/apk/res-auto"
+            <com.orekie.parallaxView.widget.ParallaxView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:parallaxParam="0.7">
@@ -51,7 +52,7 @@
                 android:padding="20dp"
                 android:text="world" />
 
-            <com.orekie.parallaxView.widget.ParallaxView xmlns:app="http://schemas.android.com/apk/res-auto"
+            <com.orekie.parallaxView.widget.ParallaxView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:parallaxParam="0.7">
@@ -75,7 +76,7 @@
                 android:padding="20dp"
                 android:text="world" />
 
-            <com.orekie.parallaxView.widget.ParallaxView xmlns:app="http://schemas.android.com/apk/res-auto"
+            <com.orekie.parallaxView.widget.ParallaxView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:parallaxParam="0.7">

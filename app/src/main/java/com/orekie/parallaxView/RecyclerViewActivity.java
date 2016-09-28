@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.orekie.parallaxView.widget.ParallaxRecyclerView;
+import com.orekie.parallaxView.widget.ParallaxView;
 
 public class RecyclerViewActivity extends AppCompatActivity {
 
@@ -21,6 +22,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
         recyclerView = (ParallaxRecyclerView) findViewById(R.id.v);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(new MyAdapter(recyclerView, this));
+
     }
 
     @Override
