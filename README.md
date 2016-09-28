@@ -40,6 +40,11 @@ item 的根布局使用 ParallaxView 包裹即可对子布局进行视差，内�
         android:src="@drawable/i0" />
 </com.orekie.parallaxView.widget.ParallaxView>
 ```
+
+RecyclerView 默认支持了 LinearLayoutManager 等，如若使用自定义的复杂 LayoutManager 请手动设置 RecyclerView 的滚动方向
+```java
+    recyclerView.setOrientation(ParallaxRecyclerView.VERTICAL);
+```
 ## ScrollView
 
 使用 ParallaxScrollView 代替 NestedScrollView 或者 ScrollView
@@ -155,3 +160,16 @@ item 的根布局使用 ParallaxView 包裹即可对子布局进行视差，内�
 ## 设置视差强度
 
 在 ParallaxView 节点添加 app:parallaxParam 属性，默认为 0.7，理论上支持 0.1-1 的范围变量
+
+```xml
+<com.orekie.parallaxView.widget.ParallaxView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:parallaxParam="0.7">
+```
+
+或者在 Java 中使用 setParallaxParam(float) 方法
+
+```java
+  parallaxView.setParallaxParam(0.7f);
+```
