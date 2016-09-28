@@ -1,6 +1,8 @@
 package com.orekie.parallaxView;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.os.Handler;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
@@ -33,6 +35,7 @@ public class MyAdapter extends ParallaxRecyclerView.ParallaxAdapter<MyAdapter.VH
             new Data("world", 0),
     };
 
+    Handler handler = new Handler();
 
     Context context;
 
@@ -57,12 +60,23 @@ public class MyAdapter extends ParallaxRecyclerView.ParallaxAdapter<MyAdapter.VH
 
 
     @Override
-    public void onBind(VH holder, int position) {
+    public void onBind(final VH holder, final int position) {
         if (getItemViewType(position) == 1) {
             ((TextView) holder.itemView).setText(datas[position].string);
         } else {
-            ((ImageView) holder.itemView.findViewById(R.id.iv))
-                    .setImageDrawable(ContextCompat.getDrawable(context, datas[position].id));
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    final Drawable drawable = ContextCompat.getDrawable(context, datas[position].id);
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            ((ImageView) holder.itemView.findViewById(R.id.iv))
+                                    .setImageDrawable(drawable);
+                        }
+                    });
+                }
+            }).start();
         }
     }
 
