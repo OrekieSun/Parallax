@@ -1,10 +1,28 @@
-# Parallax
+## Parallax
 
 可以方便的实现 google 日历列表的滚动视差效果
 
-# 如何使用
+## 如何使用
 
-RecyclerView
+# RecyclerView
+
+使用 ParallaxRecyclerView 代替 RecyclerView
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RecyclerViewActivity">
+
+
+    <com.orekie.parallaxView.widget.ParallaxRecyclerView
+        android:id="@+id/v"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</RelativeLayout>
+```
+
 item 的根布局使用 ParallaxView 包裹即可对子布局进行视差，内容不限
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -22,6 +40,5 @@ item 的根布局使用 ParallaxView 包裹即可对子布局进行视差，内�
         android:src="@drawable/i0" />
 </com.orekie.parallaxView.widget.ParallaxView>
 ```
-```java
+# ScrollView
 
-```
