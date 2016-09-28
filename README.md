@@ -151,3 +151,7 @@ item 的根布局使用 ParallaxView 包裹即可对子布局进行视差，内�
 </RelativeLayout>
 
 ```
+
+## 设置视差强度
+
+在 ParallaxView 节点添加 app:parallaxParam 属性，默认为 0.7，理论上支持 0.1-1 的范围变量
