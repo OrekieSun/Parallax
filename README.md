@@ -44,7 +44,7 @@ item 的根布局使用 ParallaxView 包裹即可对子布局进行视差，内�
 </com.orekie.parallaxView.widget.ParallaxView>
 ```
 
-RecyclerView 默认支持了 LinearLayoutManager 等，如若使用自定义的复杂 LayoutManager 请手动设置 RecyclerView 的滚动方向
+PallaxRecyclerView 默认支持了 LinearLayoutManager 等布局，如若使用自定义的复杂 LayoutManager 请手动设置 RecyclerView 的滚动方向
 ```java
     recyclerView.setOrientation(ParallaxRecyclerView.VERTICAL);
 ```
