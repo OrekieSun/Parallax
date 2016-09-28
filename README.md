@@ -6,7 +6,10 @@
 
 ## RecyclerView
 
-使用 ParallaxRecyclerView 代替 RecyclerView
+使用 ParallaxRecyclerView 代替 RecyclerView ,使用 ParallaxRecylerView.Adapter 代替 RecycleView.Adapter 
+ParallaxRecylerView.Adapter.onBind() 方法替代 RecycleView.Adapter.onBindViewHolder() 方法
+ParallaxRecylerView.Adapter.onUnBind() 方法替代 RecycleView.Adapter.onViewRecycled() 方法
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
